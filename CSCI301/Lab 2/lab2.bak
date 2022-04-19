@@ -1,0 +1,16 @@
+#lang racket
+
+(define (mystery L)
+  (if (null? L)
+      L
+      (begin
+        (displayln L)
+        (append (mystery (cdr L))
+                (list (car L))))))
+
+
+(define (gen-list start end)
+  (define current (start end))
+  (if (= (- start 1) end)
+      (cons start end)
+      (append (gen-list (+ start 1) end))))
